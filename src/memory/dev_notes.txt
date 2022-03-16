@@ -1,0 +1,12 @@
+This directory provides a simple mechanism for implementing a memory cap.
+Modules can use the MemoryCap::update_allocations() and
+update_deallocations() calls to self-report when they allocate or free
+heap memory. If the total memory allocations exceed the configured memory
+cap, flow pruning is done to free up additional memory.
+
+This mechanism is approximate and does not directly reflect the activities
+of the memory allocator or the OOM killer.
+
+TODO:
+
+- possibly add eventing
