@@ -175,7 +175,7 @@ struct OptTreeNode
     static constexpr Flag BIT_CHECK  = 0x40;
 
     /* metadata about signature */
-    SigInfo sigInfo;
+    SigInfo sigInfo; // 规则信息
     char* soid = nullptr;
 
     /* plugin/detection functions go here */

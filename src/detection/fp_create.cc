@@ -616,7 +616,7 @@ static int fpAddPortGroupRule(
 
             if ( !pg->mpsegrp[main_pmd->pm_type]->normal_mpse )
             {
-                if (!pg->mpsegrp[main_pmd->pm_type]->create_normal_mpse(sc, &agent))
+                if (!pg->mpsegrp[main_pmd->pm_type]->create_normal_mpse(sc, &agent)) // 创建一个新的MPSE实例，返回true表示创建成功
                 {
                     ParseError("Failed to create normal pattern matcher for %d", main_pmd->pm_type);
                     return -1;
@@ -1122,7 +1122,7 @@ static int fpCreatePortGroups(SnortConfig* sc, RulePortTables* p)
     bool log_rule_group_details = fp->get_debug_print_rule_group_build_details();
 
     /* IP */
-    PortObject2* po2 = PortObject2Dup(*p->ip.any);
+    PortObject2* po2 = PortObject2Dup(*p->ip.any); // 处理IP协议
     PortObject2* add_any_any = fp->get_split_any_any() ? nullptr : po2;
 
     if ( log_rule_group_details )

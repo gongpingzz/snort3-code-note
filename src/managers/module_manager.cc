@@ -1331,7 +1331,7 @@ static void make_rule(ostream& os, const Module* m, const RuleMap* r)
 // so modules with common rules will cause duplicate sid warnings
 // eg http_server (old) and http_inspect (new) both have 119:1-34
 // only way to avoid that now is to not load plugins with common rules
-// (we don't want to suppress it because it could mean something is broken)
+// (we don't want to suppress(压制) it because it could mean something is broken)
 void ModuleManager::load_rules(SnortConfig* sc)
 {
     auto mod_hooks = get_all_modhooks();

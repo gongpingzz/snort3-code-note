@@ -1272,9 +1272,9 @@ static inline bool skip_raw_tcp(const Packet* p)
 // with in the fpEvalHeader for that protocol.  If the protocol
 // is not TCP, UDP, or ICMP, we just process the packet against
 // the IP rules at the end of the fpEvalPacket routine.  Since
-// we are using a setwise methodology for snort rules, both the
+// we are using a setwise methodology(一套方法论) for snort rules, both the
 // network layer rules and the transport layer rules are done
-// at the same time.  While this is not the best for modularity,
+// at the same time.  While this is not the best for modularity（模块化）,
 // it is the best for performance, which is what we are working
 // on currently.
 
