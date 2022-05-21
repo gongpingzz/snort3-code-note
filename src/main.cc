@@ -1054,9 +1054,9 @@ static void main_loop()
 
         if ( !exit_requested and (swine < max_pigs) and (src = Trough::get_next()) )
         {
-            Pig* pig = get_lazy_pig(max_pigs);
+            Pig* pig = get_lazy_pig(max_pigs); /* 找到一个没有处理包的线程吗？ */
             if (pig->prep(src))
-                ++swine;
+                ++swine; /* swine 可以表示一群猪 */
             continue;
         }
         service_check();
