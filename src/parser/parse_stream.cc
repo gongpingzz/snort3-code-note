@@ -622,7 +622,7 @@ void parse_stream(istream& is, SnortConfig* sc)
     const char* punct = fsm[0].punct;
     RuleParseState rps;
 
-    while ( (type = get_token(is, tok, punct, esc)) )
+    while ( (type = get_token(is, tok, punct, esc)) ) // 判断类型： 注释、字符串、点。。。
     {
         ++tokens;
         const State* s = get_state(num, type, tok);

@@ -438,7 +438,7 @@ void ParseRules(SnortConfig* sc)
             pop_parse_location();
         }
 
-        if ( !p->rules.empty() )
+        if ( !p->rules.empty() ) // 加载规则文件 .rules
         {
             push_parse_location("C", p->includer.c_str(), "ips.rules");
             parse_rules_string(sc, p->rules.c_str());

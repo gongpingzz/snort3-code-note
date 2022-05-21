@@ -422,7 +422,7 @@ bool DetectionEngine::do_offload(Packet* p)
 bool DetectionEngine::offload(Packet* p)
 {
     ContextSwitcher* sw = Analyzer::get_switcher();
-    fp_partial(p); //设置FP
+    fp_partial(p); //设置FP fast-pattern
 
     if ( p->dsize >= p->context->conf->offload_limit and
         p->context->searches.items.size() > 0 )

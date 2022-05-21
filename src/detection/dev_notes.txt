@@ -19,32 +19,36 @@ Note that the fast pattern detection code refers to qualified events and
 non-qualified events.  The latter are just fast pattern hits for which
 no rule fired.  The former are fast pattern hits for which a rule actually
 fired.
+模式串命中 + 条件检查命中 -> 规则命中
+模式串命中 + 条件检查未命中 -> 规则未命中
+
+
 
 Rules w/o fast patterns are grouped per the above and evaluated for each
 packet for which the group is selected.  These are definitely bad for
 performance.
 
-The following was written by Norton and Roelker on 2002/05/15 and predates
+The following was written by Norton and Roelker on 2002/05/15 and predates(早于)
 the use of services but is still applicable.
 
-*Fast Packet Classification for Rule and Pattern Matching in SNORT*
+*Fast Packet Classification（分类分级） for Rule and Pattern Matching in SNORT*
 
 * Marc Norton <mnorton@sourcefire.com>
 * Dan Roelker <droelker@sourcefire.com>
 
 A simple method for grouping rules into lists and looking them up quickly
-in realtime.
+in realtime（实时）.
 
-There is a natural problem when aggregating rules into pattern groups for
-performing multi-pattern matching not seen with single pattern Boyer-Moore
+There is a natural problem when aggregating（聚合） rules into pattern groups for
+performing（执行） multi-pattern matching not seen with single pattern Boyer-Moore
 strategies.  The problem is how to group the rules efficiently when
 considering that there are multiple parameters which govern what rules to
 apply to each packet or connection. The parameters sip, dip, sport, dport,
-and flags form an enormous address space of possible packets that must be
+and flags form an enormous（巨大的） address space of possible packets that must be
 tested in realtime against a subset of rule patterns. Methods to group
-patterns precisely based on all of these parameters can quickly become
+patterns precisely（精确地） based on all of these parameters can quickly become
 complicated by both algorithmic implications and implementation details.
-The procedure described herein is quick and simple.
+The procedure described herein（在此） is quick and simple.
 
 Some implementations of MPSE have the capability to perform searches for
 multiple pattern groups over the same piece of data efficiently, rather than

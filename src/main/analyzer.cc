@@ -392,7 +392,7 @@ void Analyzer::process_daq_pkt_msg(DAQ_Msg_h msg, bool retry)
     p->daq_msg = msg;
     p->daq_instance = daq_instance;
 
-    PacketManager::decode(p, pkthdr, daq_msg_get_data(msg), daq_msg_get_data_len(msg), false, retry);
+    PacketManager::decode(p, pkthdr, daq_msg_get_data(msg), daq_msg_get_data_len(msg), false, retry); //解码传输层及以下协议
 
     if (process_packet(p))
     {
